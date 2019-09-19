@@ -1,0 +1,16 @@
+---
+- name: Download dhall packages
+  get_url:
+    url: "https://github.com/dhall-lang/{{ item.name }}/releases/download/{{ dhall_version }}/{{ item.name }}-{{ item.version }}-{{ dhall_arch }}-{{ dhall_os }}.tar.bz2"
+    checksum: "{{ item.checksum }}"
+    dest: "{{ dhall_tmp_directory }}"
+  with_items: "{{ dhall_components }}"
+- name: Extract dhall related binaries
+  unarchive:
+    src: "{{ dhall_tmp_directory }}/{{ item.name }}-{{ item.version }}-{{ dhall_arch }}-{{ dhall_os }}.tar.bz2"
+    dest: /usr/local/bin
+    mode: 0755
+    remote_src: True
+    extra_opts:
+    - --strip=2
+  with_items: "{{ dhall_compontents }}"

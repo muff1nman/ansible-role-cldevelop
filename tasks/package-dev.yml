@@ -1,0 +1,13 @@
+---
+- name: Install Development Tools Group
+  package:
+    name: "@Development Tools"
+- name: Install rpm devel tools
+  package:
+    name: fedora-packager,rpmdevtools,rpmlint,tito,mock,createrepo
+- name: Add user to mock group
+  user:
+    append: yes
+    name: "{{ local_user }}"
+    groups: mock
+  when: local_user is defined

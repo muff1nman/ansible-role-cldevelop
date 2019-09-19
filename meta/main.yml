@@ -1,0 +1,7 @@
+---
+dependencies:
+  - { role: git }
+  - { role: haskell-dev }
+  - { role: clruby }
+  - { role: forensics }
+  - { role: kubectl }

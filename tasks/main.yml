@@ -1,0 +1,103 @@
+---
+- name: Install Development Tools Group
+  package: 
+    name: "@Development tools"
+    state: present
+- name: Install C Development Tools and Libraries Group
+  package:
+    name: "@C Development Tools and Libraries"
+    state: present
+  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+- name: Install tree
+  package:
+    name: tree
+- name: Install s3cmd
+  package:
+    name: s3cmd
+- name: Install php markdown
+  package:
+    name: php-markdown
+- name: Install vim enhanced
+  package:
+    name: vim-enhanced
+- name: Install screen
+  package:
+    name: screen
+- name: Install bash
+  package:
+    name: bash,bash-completion
+- name: Install ruby devel
+  package:
+    name: ruby-devel
+- name: Install zlib devel
+  package:
+    name: zlib-devel
+- name: Install fat filesystem stuffs
+  package:
+    name: fuse-exfat,exfat-utils
+- include_tasks: package-dev.yml
+- name: Install nano
+  package:
+    name: nano
+- name: Install htop
+  package:
+    name: htop
+- name: Install jq
+  package:
+    name: jq
+- name: Install Medium Latex Scheme
+  package:
+    name: texlive-scheme-medium
+  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+
+# TODO figure out if medium already has these or if we should go to full?
+- name: Install Latex Packages
+  package:
+    name: texlive-latex,texlive-xetex,texlive-texconfig,texlive-collection-latex,texlive-collection-latexrecommended,texlive-collection-xetex,texlive-listings
+
+- name: Install go
+  package:
+    name: go,dep
+  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+
+- name: Install pcsc-tools for ledger gpg card
+  package:
+    name: pcsc-tools
+
+- name: Install git lfs
+  package:
+    name: git-lfs
+  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+
+- name: Install docker
+  package:
+    name: docker
+
+- name: Install stack
+  package:
+    name: stack
+  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+
+- name: Setup ledger udev rules
+  template:
+    src: 20-hw1.rules
+    dest: /etc/udev/rules.d/20-hw1.rules
+  register: ledger_rules
+
+- name: Trigger udev
+  command: >
+    udevadm trigger
+  when: ledger_rules.changed
+
+- name: Reload udev
+  command: >
+    udevadm control --reload-rules
+  when: ledger_rules.changed
+
+  # Something tells me this should be last but ledger docs has it first, so just do both
+- name: Trigger udev
+  command: >
+    udevadm trigger
+  when: ledger_rules.changed
+
+- include_tasks: dhall.yml
