@@ -1,7 +1,7 @@
 ---
 - name: Download dhall packages
   get_url:
-    url: "https://github.com/dhall-lang/{{ item.name }}/releases/download/{{ dhall_version }}/{{ item.name }}-{{ item.version }}-{{ dhall_arch }}-{{ dhall_os }}.tar.bz2"
+    url: "https://github.com/dhall-lang/dhall-haskell/releases/download/{{ dhall_version }}/{{ item.name }}-{{ item.version }}-{{ dhall_arch }}-{{ dhall_os }}.tar.bz2"
     checksum: "{{ item.checksum }}"
     dest: "{{ dhall_tmp_directory }}"
   with_items: "{{ dhall_components }}"
