@@ -13,4 +13,4 @@
     remote_src: True
     extra_opts:
     - --strip=2
-  with_items: "{{ dhall_compontents }}"
+  with_items: "{{ dhall_components }}"
