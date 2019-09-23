@@ -3,7 +3,7 @@
   get_url:
     url: "https://github.com/dhall-lang/dhall-haskell/releases/download/{{ dhall_version }}/{{ item.name }}-{{ item.version }}-{{ dhall_arch }}-{{ dhall_os }}.tar.bz2"
     checksum: "{{ item.checksum }}"
-    dest: "{{ dhall_tmp_directory }}"
+    dest: "{{ dhall_tmp_directory }}/{{ item.name }}-{{ item.version }}-{{ dhall_arch }}-{{ dhall_os }}.tar.bz2"
   with_items: "{{ dhall_components }}"
 - name: Extract dhall related binaries
   unarchive:
