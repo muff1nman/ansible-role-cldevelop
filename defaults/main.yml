@@ -1,12 +1,12 @@
 ---
-dhall_version: 1.26.0
+dhall_version: 1.26.1
 dhall_arch: x86_64
 dhall_os: linux
 dhall_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 dhall_components:
   - name: dhall
-    checksum: "sha256:05e757ecd14988ff13ede9bba10ed57105a2b56bcf864e170cf2e717dc6cdf60"
-    version: 1.26.0
+    checksum: "sha256:053c05122f0ec38c0e18a7e52752b219c149430e1a1a61a7692f47e5eac8846a"
+    version: "{{ dhall_version }}"
   - name: dhall-json
-    checksum: "sha256:d38ce436b9a49eda6b504ca4072e62201fbecba33b86043553e47ca02fea6543"
+    checksum: "sha256:09e9f24ecb88391121360dc204c2257cc940b5856545b1cbba8f7375791eedc2"
     version: 1.4.1
