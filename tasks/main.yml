@@ -7,7 +7,7 @@
   package:
     name: "@C Development Tools and Libraries"
     state: present
-  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
 - name: Install tree
   package:
     name: tree
@@ -48,7 +48,7 @@
 - name: Install Medium Latex Scheme
   package:
     name: texlive-scheme-medium
-  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
 
 # TODO figure out if medium already has these or if we should go to full?
 - name: Install Latex Packages
@@ -58,7 +58,7 @@
 - name: Install go
   package:
     name: go,dep
-  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
 
 - name: Install pcsc-tools for ledger gpg card
   package:
@@ -67,7 +67,7 @@
 - name: Install git lfs
   package:
     name: git-lfs
-  when: ansible_distribution != 'RedHat' or ansible_distribution_major_version != '7'
+  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
 
 - name: Install docker
   package:
