@@ -8,70 +8,47 @@
     name: "@C Development Tools and Libraries"
     state: present
   when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
-- name: Install tree
+- name: Install packages
   package:
-    name: tree
-- name: Install s3cmd
+    name:
+    - tree
+    - s3cmd
+    - php-markdown
+    - vim-enhanced
+    - screen
+    - bash
+    - bash-completion
+    - ruby-devel
+    - zlib-devel
+    - fuse-exfat
+    - exfat-utils
+    - nano
+    - htop
+    - jq
+    - pcsc-tools # for ledger gpg card
+    - docker
+    - sshpass
+
+- name: Install modern packages
   package:
-    name: s3cmd
-- name: Install php markdown
-  package:
-    name: php-markdown
-- name: Install vim enhanced
-  package:
-    name: vim-enhanced
-- name: Install screen
-  package:
-    name: screen
-- name: Install bash
-  package:
-    name: bash,bash-completion
-- name: Install ruby devel
-  package:
-    name: ruby-devel
-- name: Install zlib devel
-  package:
-    name: zlib-devel
-- name: Install fat filesystem stuffs
-  package:
-    name: fuse-exfat,exfat-utils
-- include_tasks: package-dev.yml
-- name: Install nano
-  package:
-    name: nano
-- name: Install htop
-  package:
-    name: htop
-- name: Install jq
-  package:
-    name: jq
-- name: Install Medium Latex Scheme
-  package:
-    name: texlive-scheme-medium
+    name:
+     - go
+     - dep
+     - git-lfs
+     - texlive-scheme-medium
   when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
 
 # TODO figure out if medium already has these or if we should go to full?
 - name: Install Latex Packages
   package:
-    name: texlive-latex,texlive-xetex,texlive-texconfig,texlive-collection-latex,texlive-collection-latexrecommended,texlive-collection-xetex,texlive-listings
-
-- name: Install go
-  package:
-    name: go,dep
-  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
-
-- name: Install pcsc-tools for ledger gpg card
-  package:
-    name: pcsc-tools
-
-- name: Install git lfs
-  package:
-    name: git-lfs
-  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
-
-- name: Install docker
-  package:
-    name: docker
+    name:
+      - texlive-latex
+      - texlive-xetex
+      - texlive-texconfig
+      - texlive-collection-latex
+      - texlive-collection-latexrecommended
+      - texlive-collection-xetex
+      - texlive-listings
 
 - name: Setup ledger udev rules
   template:
