@@ -15,6 +15,7 @@
     - s3cmd
     - php-markdown
     - vim-enhanced
+    - neovim
     - screen
     - bash
     - bash-completion
@@ -28,6 +29,8 @@
     - pcsc-tools # for ledger gpg card
     - docker
     - sshpass
+    - clang-tools-extra # for clangd
+    - fzf
 
 - name: Install modern packages
   package:
