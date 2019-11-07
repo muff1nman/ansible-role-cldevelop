@@ -5,3 +5,4 @@ dependencies:
   - { role: clruby }
   - { role: forensics }
   - { role: kubectl }
+  - { role: google-cloud-sdk }
