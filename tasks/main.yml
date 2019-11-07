@@ -39,6 +39,7 @@
      - dep
      - git-lfs
      - texlive-scheme-medium
+     - ripgrep
   when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
 
 # TODO figure out if medium already has these or if we should go to full?
