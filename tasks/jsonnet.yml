@@ -2,7 +2,7 @@
 - name: Download jsonnet package
   get_url:
     url: "https://github.com/google/jsonnet/releases/download/v0.14.0/jsonnet-bin-v0.14.0-linux.tar.gz"
-    checksum: "{{ item.checksum }}"
+    checksum: "sha256:30ba7b243ddb24231882ae3aa1930e76b6050bb76b5ccd0d97410b21fb784039"
     dest: "{{ download_tmp_directory }}/jsonnet-bin-v0.14.0-linux.tar.gz"
 - name: Extract jsonnet binaries
   unarchive:
@@ -10,5 +10,3 @@
     dest: /usr/local/bin
     mode: 0755
     remote_src: True
-    extra_opts:
-    - --strip=2
