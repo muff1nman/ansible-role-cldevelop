@@ -6,3 +6,4 @@ dependencies:
   - { role: forensics }
   - { role: kubectl }
   - { role: google-cloud-sdk }
+  - { role: docker-daemon }
