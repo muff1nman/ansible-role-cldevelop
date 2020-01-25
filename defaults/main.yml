@@ -1,8 +1,9 @@
 ---
+download_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+
 dhall_version: 1.26.1
 dhall_arch: x86_64
 dhall_os: linux
-dhall_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 dhall_components:
   - name: dhall
     checksum: "sha256:053c05122f0ec38c0e18a7e52752b219c149430e1a1a61a7692f47e5eac8846a"

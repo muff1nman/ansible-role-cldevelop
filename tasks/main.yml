@@ -79,3 +79,4 @@
   when: ledger_rules.changed
 
 - include_tasks: dhall.yml
+- include_tasks: jsonnet.yml
