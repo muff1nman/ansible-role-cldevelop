@@ -62,22 +62,29 @@
     src: 20-hw1.rules
     dest: /etc/udev/rules.d/20-hw1.rules
   register: ledger_rules
+  when: local_user is defined
 
 - name: Trigger udev
   command: >
     udevadm trigger
-  when: ledger_rules.changed
+  when:
+    - ledger_rules.changed
+    - local_user is defined
 
 - name: Reload udev
   command: >
     udevadm control --reload-rules
-  when: ledger_rules.changed
+  when:
+    - ledger_rules.changed
+    - local_user is defined
 
   # Something tells me this should be last but ledger docs has it first, so just do both
 - name: Trigger udev
   command: >
     udevadm trigger
-  when: ledger_rules.changed
+  when:
+    - ledger_rules.changed
+    - local_user is defined
 
 - include_tasks: dhall.yml
 - include_tasks: jsonnet.yml
