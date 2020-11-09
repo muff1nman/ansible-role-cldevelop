@@ -32,6 +32,7 @@
     - clang-tools-extra # for clangd
     - fzf
     - awscli
+    - moreutils
 
 - name: Install modern packages
   package:
