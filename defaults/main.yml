@@ -11,3 +11,6 @@ dhall_components:
   - name: dhall-json
     checksum: "sha256:ae67cdcd0ee25fa5e5fd9b813947bf71d3ab7e34cfcf8679213578981417fa4d"
     version: 1.7.4
+  - name: dhall-yaml
+    checksum: "sha256:2b878000321978b6bddb12aeeae674c49717bdcf665df3b41d15dfe9c3c3a23a"
+    version: 1.2.4
