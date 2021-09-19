@@ -21,8 +21,6 @@
     - bash-completion
     - ruby-devel
     - zlib-devel
-    - fuse-exfat
-    - exfat-utils
     - nano
     - htop
     - jq
@@ -38,7 +36,6 @@
   package:
     name:
      - go
-     - dep
      - git-lfs
      - ripgrep
      - python3-virtualenv
