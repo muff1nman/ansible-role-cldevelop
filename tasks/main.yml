@@ -32,6 +32,7 @@
     - awscli
     - moreutils
     - podman
+    - skopeo
 
 - name: Install modern packages
   package:
