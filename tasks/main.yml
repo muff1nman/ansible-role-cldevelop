@@ -33,6 +33,7 @@
     - moreutils
     - podman
     - skopeo
+    - sshuttle
 
 - name: Install modern packages
   package:
