@@ -7,4 +7,3 @@ dependencies:
   - { role: kubectl }
   - { role: kubectl-kubelogin }
   - { role: google-cloud-sdk }
-  - { role: docker-daemon }

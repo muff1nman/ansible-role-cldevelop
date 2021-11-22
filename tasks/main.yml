@@ -25,13 +25,14 @@
     - htop
     - jq
     - pcsc-tools # for ledger gpg card
-    - docker
     - sshpass
     - clang-tools-extra # for clangd
     - fzf
     - awscli
     - moreutils
     - podman
+    - podman-docker
+    - docker-compose
     - skopeo
     - sshuttle
 
@@ -44,6 +45,12 @@
      - python3-virtualenv
      - ShellCheck
   when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
+
+- name: Quiet podman message
+  file:
+    state: touch
+    path: /etc/containers/nodocker
+    modification_time: preserve
 
 - name: Setup ledger udev rules
   template:
