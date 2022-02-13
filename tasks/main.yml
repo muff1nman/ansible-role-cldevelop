@@ -7,16 +7,17 @@
   package:
     name: "@C Development Tools and Libraries"
     state: present
-  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
+  when:
+    - ansible_os_family != 'RedHat'
+    - ansible_distribution_major_version not in ['7', '8']
 - name: Install packages
   package:
     name:
     - tree
     - s3cmd
-    - php-markdown
     - vim-enhanced
     - neovim
-    - screen
+    - tmux
     - bash
     - bash-completion
     - ruby-devel
@@ -45,7 +46,9 @@
      - python3-virtualenv
      - ShellCheck
      - vault
-  when: ansible_os_family != 'RedHat' or ansible_distribution_major_version != '7'
+  when:
+    - ansible_os_family != 'RedHat'
+    - ansible_distribution_major_version not in ['7', '8']
 
 - name: Quiet podman message
   file:
