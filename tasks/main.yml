@@ -40,7 +40,7 @@
 - name: Install modern packages
   package:
     name:
-     - go
+     - golang
      - git-lfs
      - ripgrep
      - python3-virtualenv
