@@ -36,6 +36,7 @@
     - docker-compose
     - skopeo
     - sshuttle
+    - usbutils
 
 - name: Install modern packages
   package:
