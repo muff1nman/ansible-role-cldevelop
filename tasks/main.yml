@@ -47,6 +47,7 @@
      - ShellCheck
      - vault
      - minisign
+     - signify
   when:
     - ansible_os_family != 'RedHat'
     - ansible_distribution_major_version not in ['7', '8']
